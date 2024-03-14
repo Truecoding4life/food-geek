@@ -1,9 +1,15 @@
+
+.restaurant-detail-page{
+    background-color: rgb(24, 22, 22);
+    color: white;
+}
+
 .review-author {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgba(31, 22, 22, 0.906);
-    color:aqua;
+    background-color: rgba(34, 30, 30, 0.906);
+    color:rgb(46, 50, 50);
     border-radius: 20px 0px 0px 20px;
     text-align: center;
     min-width: 30%;
@@ -11,15 +17,21 @@
 }
 
 .review-text {
-    background-color: rgb(203, 224, 205);
-    color: rgba(31, 22, 22, 0.906);;
+    background-color: rgb(231, 235, 232);
+    color: rgba(32, 30, 30, 0.906);;
     border-radius: 0px 20px 20px 0px;
+
     /* min-width: 90%; */
+}
+
+.title{
+    width: 40%;
 }
 
 #reviews {
     display: flex;
     flex-direction: column;
+    font-family: "Raleway", sans-serif;
 }
 
 @media screen and (min-width: 769px) {
@@ -27,3 +39,5 @@
         min-width: 12%;
     }
 }
+
+

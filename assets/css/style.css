@@ -61,7 +61,7 @@ a:hover {
 
 }
 
-.card:hover{
+.result-card:hover{
     transform: translateY(-10px);
     transition: .3s;
 }
@@ -80,6 +80,7 @@ a:hover {
 
 .navbar{
     background-color:var(--main-color);
+    
 }
 
 
@@ -103,7 +104,8 @@ a:hover {
     padding: 3px;
     min-height: 190px;
     max-height: 190px;
-    
+    box-shadow: 7px 10px 10px rgba(34, 31, 31, 0.398); /* Update box shadow values */
+
 }
 
 
@@ -112,10 +114,8 @@ a:hover {
     height: 180px;
     margin-bottom: auto;
 }
-.card:hover {
-    box-shadow: 4px 8px 30px rgb(30, 29, 29);
 
-}
+
 
 .col-md-8{
     padding: 3px;
@@ -130,6 +130,8 @@ a:hover {
     height: 100%;
     width: 30%;
 }
+
+
 
 #header {
     background-color: var(--main-color);
@@ -166,7 +168,7 @@ a:hover {
 
 .dropdown-item{
     text-decoration: none;
-    color: #4e4b4b;
+    color: #383636;
     font-style: "Nunito Sans";
 
 }
