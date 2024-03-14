@@ -242,14 +242,7 @@ function initGoogle() {
  * Specifically initializes the Google Autocomplete API. Only searches for Cities and only receives the gps coordinates of the city selected.
  */
 function initAutocomplete() {
-    // Create a bounding box with sides ~10km away from the center point
-    // const defaultBounds = {
-    //     north: deviceLocation.lat + 0.1,
-    //     south: deviceLocation.lat - 0.1,
-    //     east: deviceLocation.lng + 0.1,
-    //     west: deviceLocation.lng - 0.1,
-    // };
-
+  
     const options = {
         // bounds: defaultBounds,
         types: ["(cities)"],
