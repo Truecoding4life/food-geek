@@ -40,6 +40,7 @@ function showRecipeResults(searchQuery) {
             return response.json();
         })
         .then(function (data) {
+        
             for (i = 0; i < 4; i++) {
                 var recipeId = data.hits[i].recipe.uri.split("_")[1];
                 var recipeTitle = data.hits[i].recipe.label;         //<---- RECIPE NAME SOURCE
@@ -53,7 +54,7 @@ function showRecipeResults(searchQuery) {
             }
 
             if (data.hits.length > 0) {
-                $(".recipe-display").append('<div> <p class = "is-size-2 mb-3 has-text-centered"><a href = "./see-more-recipes.html?q=' + searchQuery +'">See more recipes <p></div>');
+                $(".recipe-display").append('<div> <p class = "is-size-2 mb-3 text-centered"><a href = "./see-more-recipes.html?q=' + searchQuery +'">See more recipes <p></div>');
             }
 
             // Scroll user to results
@@ -64,40 +65,41 @@ function showRecipeResults(searchQuery) {
 // THIS FUNCTION WILL GENERATE ELEMENT ON THE PAGE WE JUST NEED TO NEST THE INFO WE NEED INSIDE
 // THIS FUNCTION WILL TAKE IN TITLE, CARD TEXT CONTENT AND IMAGE URL
 function RecipecardGenerator(title, subtitle, imagehtml, recipeId, mealTypeData, calorieData) {
-    var resultColumn = $("<div>").addClass("column is-12 result-display");
-    
-    var resultCard = $("<div>").addClass("card");
+    var resultColumn = $("<div>").addClass("col-12 result-display m-0 p-2");
 
-    var cardImage = $("<div>").addClass("card-image");
+    var resultCard = $("<div>").addClass("card result-card");
 
-    var figure = $("<figure>").addClass("image is-4by3");
+    var cardBody = $("<div>").addClass("card-body");
 
-    var cardContent = $("<div>").addClass("card-content");
+    var row = $("<div>").addClass("row g-0");
 
+    var cardImageColumn = $("<div>").addClass("col-md-4");
+    var cardImage = $("<img>").attr("src", imagehtml).addClass("img-fluid rounded-start");
+    cardImageColumn.append(cardImage);
+
+    var cardContentColumn = $("<div>").addClass("col-md-8");
     var mediaContent = $("<div>").addClass("media-content");
 
-    var cardTitle = $("<h1>").addClass("title is-4");
+    var cardTitle = $("<h5>").addClass("card-title");
     cardTitle.text(title);
 
     let icon = createBookmark(title,recipeId, "recipe");
     cardTitle.append(icon);
 
-    var cardSub = $("<h2>").addClass("subtitle is-6");
+    var cardSub = $("<h5>").addClass("subtitle");
     cardSub.html("<b>Cuisine type: </b>" + subtitle);
 
-    
-    var recipeBox = $("<ul>");
-    recipeBox.attr("class","ingredient")    
-    recipeBox.append("<li><b>Good for</b>:" + mealTypeData + "</li>");
+    var recipeBox = $("<ul>").addClass("ingredient");
+    recipeBox.append("<li>Good for:" + mealTypeData + "</li>");
     recipeBox.append("<li>" + calorieData + " calories</li>");
     recipeBox.append('<li><a href="./recipe-details.html?=' + recipeId + '"> Details</a></li>');
 
     mediaContent.append(cardTitle, cardSub, recipeBox);
-    cardContent.append(mediaContent);
-    
-    figure.append($("<img>").attr("src", imagehtml));
-    cardImage.append(figure);
-    resultCard.append(cardImage, cardContent);
+    cardContentColumn.append(mediaContent);
+
+    row.append(cardImageColumn, cardContentColumn);
+    cardBody.append(row);
+    resultCard.append(cardBody);
     resultColumn.append(resultCard);
 
     $(".recipe-display").append(resultColumn);

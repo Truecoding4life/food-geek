@@ -6,11 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="https://kit.fontawesome.com/f96f0b7823.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/restaurants-results.css">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <title>Recipe Details</title>
 </head>
 
@@ -24,7 +30,7 @@
             </button>
         </div>
         <div class="dropdown-menu" id="dropdown-menu1" role="menu">
-            <div id="bookmark"class="dropdown-content">
+            <div id="bookmark" class="dropdown-content">
             </div>
         </div>
     </header>
@@ -32,10 +38,10 @@
     <main>
         <section class="container">
             <figure class="media">
-                <a href = "./index.html">
+                <a href="./index.html">
                     <p class="image">
                         <img src="./assets/images/logo_with_sitename.png">
-                    </p>    
+                    </p>
                 </a>
             </figure>
         </section>
@@ -45,34 +51,24 @@
                 <div id="title" class="message-header">
                     <p class="title has-text-white">Recipe Detail</p>
                 </div>
-    
+
                 <br>
-    
+
                 <!-- Image and detail/location -->
-                <div class="columns m-0">
-                    <div class="column is-6">
-                        <div id="photo" class="card">
-                            <figure class="image is-4by3">    <!--  Pointer to Images-->
-                                <img id="image" alt="Placeholder image">
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="column is-6">
-                        <div id="info" class="card block">
-                            <header class="card-header"> <!-- Pointer to Recipe Name  -->
-                                <p id="name" class="card-header-title">recipe Name</p>    
-                            </header>
-                        </div>
-                        
+                <div class="row">
+                    <div class="col-3">
                         <div class="card">
-                            <div id="shortDescription" class="card-content">
-                                <p id="name" class="card-header-title pl-0">Ingredients:</p>  
-                                <p id="" ></p>
+                            <!--  Pointer to Images-->
+                            <img id="image" class="image-fluid w-100" alt="Placeholder image">
+
+                            <div id="info" class="card-body">
+                                <p id="name" class="card-title">>recipe Name</p>
+                                <p id="shortDescription" class="card-text">Ingredients:</p>
+                                <p id="link">Link to the details</p>
                             </div>
-                        </div>
-                        <div class="card">
-                            <div id="shortDescription" class="card-content">
-                               <p id="link">Link to the details</p>
+
+                            <div class="card">
+                                <p id=""></p>
                             </div>
                         </div>
                     </div>
@@ -80,7 +76,7 @@
 
                 <div class="card mx-2">
                     <div id="shortDescription" class="card-content">
-                        <p id="name" class="card-header-title pl-0">About this menu:</p>  
+                        <p id="name" class="card-header-title pl-0">About this menu:</p>
                         <p id="longDescription"></p>
                     </div>
                 </div>
@@ -91,7 +87,7 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="./assets/js/bookmarks.js"></script>
     <script src="./assets/js/recipe-details.js"></script>
 </body>

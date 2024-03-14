@@ -47,30 +47,29 @@ function displayResults(results) {
         let photo = info[RESULTS_PHOTO_URL];
 
         let card = $("<div>");
-        card.addClass("card column is-3 mx-3 mt-3")
+        card.addClass("card col-4  mx-3 mt-3")
 
 
-        let cardHeader = $("<div>");
-        cardHeader.addClass("card-header");
+      
 
         let cardTitle = $("<h3>");
-        cardTitle.addClass("card-header-title title my-0 is-3 is-centered");
+        cardTitle.addClass("card-title title my-0 is-3 is-centered");
         cardTitle.text(name)
-        cardHeader.append(cardTitle);
+      
       
         let icon = createBookmark(name, results[i].place_id, "restaurant");
         icon.addClass("more-icon");
-        cardHeader.append(icon);
+        cardTitle.append(icon);
             
 
 
-        var cardImage = $("<div>").addClass("card-image");
-        var figure = $("<figure>").addClass("image is-4by3");
+        var cardImage = $("<img>").attr("src", photo).addClass("card-img-top");
+       
 
-        var image = $("<img>").attr("src", photo);
-        figure.append(image);
-        cardImage.append(figure);
-        let cardContent = $("<div>");
+     
+
+     
+        let cardContent = $("<div>").addClass('card-body');
         cardContent.addClass("is-size-4");
 
         let isOpenEl = $("<p>");
@@ -86,7 +85,7 @@ function displayResults(results) {
         detailsLink.html('<a href = "./restaurant-details.html?=' + results[i].place_id + '">Details</a>');
 
         cardContent.append(isOpenEl, priceLevelEl, ratingEl, detailsLink);
-        card.append(cardImage, cardHeader, cardContent);
+        card.append(cardImage, cardTitle, cardContent);
         cardDiv.append(card);
     }
 

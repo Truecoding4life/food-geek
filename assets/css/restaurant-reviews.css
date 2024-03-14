@@ -11,7 +11,7 @@
 }
 
 .review-text {
-    background-color: aqua;
+    background-color: rgb(203, 224, 205);
     color: rgba(31, 22, 22, 0.906);;
     border-radius: 0px 20px 20px 0px;
     /* min-width: 90%; */
