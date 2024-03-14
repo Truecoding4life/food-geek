@@ -1,9 +1,11 @@
 const GOOGLE = "AIzaSyBh-HQyYZY0dRI0qHJGsqsV2BttsqKpaJc";
 const SEARCH_RESULTS = "restaurantResults";
+const SEARCH_OPTIONS = "restaurantOptions";
 const RESULTS_PHOTO_URL = "photo_url";
 const RESULTS_IS_OPEN = "is_open";
 const RESULTS_NO_HOURS = "No hours listed"
 const SHOW_INITIAL_RESTAURANTS = 4; // Determines how many restaurants to show on the front page
+
 
 var queryItem = $("#query-item");
 var queryLocation = $("#query-location");
@@ -35,7 +37,6 @@ async function handleUpdateAutocomplete() {
     var place = gAutocomplete.getPlace();
 
     if (!place.geometry) { // Checks if the user did not click on a place
-        console.log(place)
         queryLocation.val("")
     } else {
         searchLocation.lat = place.geometry.location.lat()
@@ -76,11 +77,13 @@ function fetchGooglePlaces(keyword) {
         displayResults(updatedResults, searchOptions);
         
         updatedResults.push(searchOptions); // Add searchInfo to the end to use later
-
+        
         // Store results in local storage to bring to see-more-restaurants.html
         let stringifyResults = JSON.stringify(updatedResults);
+        let stringifyOptions = JSON.stringify(searchOptions);
         // console.log(stringifyResults)
         localStorage.setItem(SEARCH_RESULTS, stringifyResults);
+        localStorage.setItem(SEARCH_OPTIONS, stringifyOptions)
     });
 }
 
@@ -157,7 +160,7 @@ function displayResults(results, searchOptions) {
         let isOpenEl = $("<p>").html(isOpen);
         let ratingEl = $("<p>").html(`<strong>${rating}</strong> /5 (${ratingsCount} total reviews)`);
         let priceLevelEl = $("<p>").html(priceLevel);
-        let details = $('<a href="./restaurant-details.html?q=' + results[i].place_id +'">Details</a>');
+        let details = $('<a href="./restaurant-details.html?q=' + results[i].place_id +'">Details </a>');
 
   
         cardContentColumn.append(cardTitle, isOpenEl, priceLevelEl, ratingEl, details).append(mediaContent);;
@@ -199,7 +202,7 @@ function buildIsOpen(isOpen) {
     if (isOpen === RESULTS_NO_HOURS) {
         return RESULTS_NO_HOURS;
     }
-
+ 
     if (isOpen) {
         return "is <strong>Open</strong>";
     } else {
@@ -282,3 +285,11 @@ function showPosition(position) {
     deviceLocation.lat = position.coords.latitude;
     deviceLocation.lng = position.coords.longitude;
 }
+
+function getLocalStorage(){
+   const data = JSON.parse(localStorage.getItem(SEARCH_RESULTS));
+    const options = JSON.parse(localStorage.getItem(SEARCH_OPTIONS))
+    displayResults(data,options)
+}
+
+getLocalStorage()

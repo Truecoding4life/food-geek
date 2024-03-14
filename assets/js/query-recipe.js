@@ -1,3 +1,6 @@
+const SEARCH_RESULT = 'recipeResults'
+
+
 var queryItem = $("#query-item");
 var queryLocation = $("#query-location");
 var buttonSearch = $("#button-search");
@@ -27,7 +30,7 @@ modalCloseButton.on("click", function() {
 });
 
 /// Base API request to get recipe data
-
+let result = {};
 function showRecipeResults(searchQuery) {
     var requestURL =
         "https://api.edamam.com/api/recipes/v2?type=public&q=" +
@@ -40,31 +43,31 @@ function showRecipeResults(searchQuery) {
             return response.json();
         })
         .then(function (data) {
-            for (i = 0; i < 4; i++) {
-                console.log(data.hits[i].recipe.images)
-                var recipeId = data.hits[i].recipe.uri.split("_")[1];
-                var recipeTitle = data.hits[i].recipe.label;         //<---- RECIPE NAME SOURCE
-                var extractCuiseType = data.hits[i].recipe.cuisineType;
-                crusinetype = extractCuiseType[0];      //<----------------RECIPE CUISINE TYPE SOURCE
-                var imageSouce = data.hits[i].recipe.images.SMALL.url;   //<-------- RECIPE IMAGE SOURCE
-                var mealTypeData = data.hits[i].recipe.mealType;
-                var calorieData = Math.round(data.hits[i].recipe.calories);
                 // ALL WE HAVE TO DO IS INSERT INTO THE CARD GENERATOR FUNCTION VALUES RETURNED FROM API
-                RecipecardGenerator(recipeTitle, crusinetype, imageSouce,recipeId, mealTypeData, calorieData);
-            }
-
+                localStorage.setItem(SEARCH_RESULT, JSON.stringify(data))
+                RecipecardGenerator(data);
+            
             if (data.hits.length > 0) {
                 $(".recipe-display").append('<div> <p class = "is-size-2 mb-3 text-centered"><a href = "./see-more-recipes.html?q=' + searchQuery +'">See more recipes <p></div>');
             }
 
             // Scroll user to results
-            document.getElementById("results-columns").scrollIntoView({ behavior: "smooth" });
         });
 }
 
 // THIS FUNCTION WILL GENERATE ELEMENT ON THE PAGE WE JUST NEED TO NEST THE INFO WE NEED INSIDE
 // THIS FUNCTION WILL TAKE IN TITLE, CARD TEXT CONTENT AND IMAGE URL
-function RecipecardGenerator(title, subtitle, imagehtml, recipeId, mealTypeData, calorieData) {
+function RecipecardGenerator(data) {
+
+     for (i = 0; i < 4; i++) {
+                recipeId = data.hits[i].recipe.uri.split("_")[1];
+                var title = data.hits[i].recipe.label;         //<---- RECIPE NAME SOURCE
+                var subtitle = data.hits[i].recipe.cuisineType[0];      //<----------------RECIPE CUISINE TYPE SOURCE
+                var imageSource = data.hits[i].recipe.images.SMALL.url;   //<-------- RECIPE IMAGE SOURCE
+                var mealTypeData = data.hits[i].recipe.mealType;
+                var calorieData = Math.round(data.hits[i].recipe.calories);
+
+
     var resultColumn = $("<div>").addClass("col-12 result-display m-0 p-2");
     var resultCard = $("<div>").addClass("card result-card");
 
@@ -73,7 +76,7 @@ function RecipecardGenerator(title, subtitle, imagehtml, recipeId, mealTypeData,
     var row = $("<div>").addClass("row g-0");
 
     var cardImageColumn = $("<div>").addClass("col-md-4");
-    var cardImage = $("<img>").attr("src", imagehtml).addClass("img-fluid card-image");
+    var cardImage = $("<img>").attr("src", imageSource).addClass("img-fluid card-image");
     cardImageColumn.append(cardImage);
 
     var cardContentColumn = $("<div>").addClass("col-md-8 card-content ");
@@ -102,8 +105,16 @@ function RecipecardGenerator(title, subtitle, imagehtml, recipeId, mealTypeData,
     resultColumn.append(resultCard);
 
     $(".recipe-display").append(resultColumn);
-}
+}}
 
 function openModal(){
     document.getElementById("emptyinput").setAttribute("class", "modal is-active");
 };
+
+
+function getLocalStorage(){
+    var data = JSON.parse(localStorage.getItem(SEARCH_RESULT))
+    RecipecardGenerator(data);
+}
+
+getLocalStorage()

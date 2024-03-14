@@ -19,10 +19,14 @@ form {
 
 a{
     text-decoration: none;
+    color: rgb(220, 68, 98);
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
 }
 
 a:hover {
-    color: rgb(139, 194, 228);
+    color: rgb(237, 179, 54);
+  
 }
 
 
@@ -57,6 +61,10 @@ a:hover {
 
 }
 
+.card:hover{
+    transform: translateY(-10px);
+    transition: .3s;
+}
 
 .card-image{
     height: 10%;
