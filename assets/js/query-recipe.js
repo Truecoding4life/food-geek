@@ -40,8 +40,8 @@ function showRecipeResults(searchQuery) {
             return response.json();
         })
         .then(function (data) {
-        
             for (i = 0; i < 4; i++) {
+                console.log(data.hits[i].recipe.images)
                 var recipeId = data.hits[i].recipe.uri.split("_")[1];
                 var recipeTitle = data.hits[i].recipe.label;         //<---- RECIPE NAME SOURCE
                 var extractCuiseType = data.hits[i].recipe.cuisineType;
@@ -66,21 +66,20 @@ function showRecipeResults(searchQuery) {
 // THIS FUNCTION WILL TAKE IN TITLE, CARD TEXT CONTENT AND IMAGE URL
 function RecipecardGenerator(title, subtitle, imagehtml, recipeId, mealTypeData, calorieData) {
     var resultColumn = $("<div>").addClass("col-12 result-display m-0 p-2");
-
     var resultCard = $("<div>").addClass("card result-card");
 
-    var cardBody = $("<div>").addClass("card-body");
+    var cardBody = $("<div>").addClass("card-body p-0");
 
     var row = $("<div>").addClass("row g-0");
 
     var cardImageColumn = $("<div>").addClass("col-md-4");
-    var cardImage = $("<img>").attr("src", imagehtml).addClass("img-fluid rounded-start");
+    var cardImage = $("<img>").attr("src", imagehtml).addClass("img-fluid card-image");
     cardImageColumn.append(cardImage);
 
-    var cardContentColumn = $("<div>").addClass("col-md-8");
-    var mediaContent = $("<div>").addClass("media-content");
+    var cardContentColumn = $("<div>").addClass("col-md-8 card-content ");
+  
 
-    var cardTitle = $("<h5>").addClass("card-title");
+    var cardTitle = $("<h5>").addClass("card-title d-flex justify-content-between");
     cardTitle.text(title);
 
     let icon = createBookmark(title,recipeId, "recipe");
@@ -89,17 +88,17 @@ function RecipecardGenerator(title, subtitle, imagehtml, recipeId, mealTypeData,
     var cardSub = $("<h5>").addClass("subtitle");
     cardSub.html("<b>Cuisine type: </b>" + subtitle);
 
-    var recipeBox = $("<ul>").addClass("ingredient");
-    recipeBox.append("<li>Good for:" + mealTypeData + "</li>");
-    recipeBox.append("<li>" + calorieData + " calories</li>");
-    recipeBox.append('<li><a href="./recipe-details.html?=' + recipeId + '"> Details</a></li>');
+    var recipeBox = $("<div>").addClass("");
+    recipeBox.append("<p>Good for:" + mealTypeData + "</p>");
+    recipeBox.append("<p>" + calorieData + " calories</p>");
+    recipeBox.append('<a href="./recipe-details.html?=' + recipeId + '"> Details</a>').addClass('list-group-item');
 
-    mediaContent.append(cardTitle, cardSub, recipeBox);
-    cardContentColumn.append(mediaContent);
+    cardContentColumn.append(cardTitle, cardSub, recipeBox);
+ 
 
-    row.append(cardImageColumn, cardContentColumn);
-    cardBody.append(row);
-    resultCard.append(cardBody);
+    cardContentColumn.append( cardBody);
+    row.append(cardImageColumn ,cardContentColumn);
+    resultCard.append(row);
     resultColumn.append(resultCard);
 
     $(".recipe-display").append(resultColumn);

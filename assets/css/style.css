@@ -1,45 +1,85 @@
 :root{
-    --main-color: #c3404bfb;
+    --main-color: #973136f4;
 }
 
 * {
-    font-family: lato;
+    font-family: Raleway, sans-serif;
 }
 
 body {
-    background-color: rgba(0, 0, 0, 0.906);
+    background-color: rgba(21, 20, 20, 0.985);
     height: auto !important;
     min-height: 100vh;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 75%;
+    font-family: Nunito, sans-serif;
+ 
 }
 
-li {
-    color: rgb(80, 71, 71);
-    list-style: none;
-}
+
 
 a:hover {
     color: rgb(139, 194, 228);
 }
 
 
+.form-control {
+    background-color: #373737f3; /* Change background color to white */
+    border-color: #221e1e; /* Change border color to black */
+    color: #ded8d8;
+    border-radius: 30px;
+}
+.form-control::placeholder {
+    color: #e9e9e9; /* Change color of the placeholder text */
+}
+
+.form-control:focus {
+    background-color: #232121db; /* Change background color to white */
+    border-color: #221e1e; /* Change border color to black */
+    color: #ded8d8;
+}
+.form-control:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #373737f3 inset !important; /* Adjust background color */
+    -webkit-text-fill-color: #ded8d8 !important; /* Adjust text color */
+}
+.search-section{
+    padding: 26px;
+    background-color:#2a272767;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.img-fluid{
+    border-radius: 300px;
+
+}
 
 
+.card-image{
+    height: 10%;
+}
+
+.card-content{
+    color: #f0eeee;
+    
+}
+.card-title{
+    font-size: 17px;
+}
 
 .navbar{
     background-color:var(--main-color);
 }
 
+
+
 .navbar-brand{
-    font-size: 25px;
-    margin: auto;
+    font-size: 30px;
     color: #ffffff;
+    font-family: Syne, sans-serif;
+    font-weight: 500;
+    
 }
 .result-display {
     margin: 12px;
@@ -48,21 +88,31 @@ a:hover {
 }
 
 .result-card{
-    background-color: rgba(51, 56, 56, 0.578);
-    color: #ffffff;
+    background-color: rgba(35, 36, 36, 0.979);
+    color: #cbc0c0;
+    padding: 3px;
+    min-height: 190px;
+    max-height: 190px;
+    
 }
 
 
-
+.card-image{
+    width: 180px;
+    height: 180px;
+    margin-bottom: auto;
+}
 .card:hover {
     box-shadow: 4px 8px 30px rgb(30, 29, 29);
 
 }
 
-
+.col-md-8{
+    padding: 3px;
+}
 
 .navbar-brand:hover{
-    font-size: 27px;
+    font-size: 32px;
     transition: .5s;
     color: rgb(237, 237, 237);
 }
@@ -104,6 +154,17 @@ a:hover {
     width: 443px;
 }
 
+.dropdown-item{
+    text-decoration: none;
+    color: #4e4b4b;
+    font-style: "Nunito Sans";
+
+}
+
+.title{
+    font-family: Poppins, sans-serif;
+    border-radius: 4px;
+}
 
 @media screen and (min-width: 769px) {
     form {

@@ -33,7 +33,7 @@ function getSearchResults(searchQuery) {
                 var imageSouce = data.hits[i].recipe.images.SMALL.url; 
 
                 let card = $("<div>");
-                card.addClass("card column is-3 mx-3 mt-3")
+                card.addClass("card")
                 
                 let cardHeader = $("<div>");
                 cardHeader.addClass("card-header");

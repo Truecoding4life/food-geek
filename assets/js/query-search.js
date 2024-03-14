@@ -99,7 +99,7 @@ function updateResults(results) {
         // Make undefined checks 
         let photoUrl = info.icon;
         if (info.photos) {
-            photoUrl = info.photos[0].getUrl({maxWidth: 400, maxHeight: 400});
+            photoUrl = info.photos[0].getUrl({maxWidth: 500, maxHeight: 500});
         }
         
         let isOpen = RESULTS_NO_HOURS;
@@ -136,18 +136,19 @@ function displayResults(results, searchOptions) {
         let ratingsCount = info.user_ratings_total;
         let photoUrl = info.photo_url;
 
-        var resultColumn = $("<div>").addClass("col-12 m-0 p-2");
-        var resultCard = $("<div>").addClass("card result-card");
-        var row = $("<div>").addClass("row g-0");
+        var resultColumn = $("<div>").addClass("col-12 result-display m-0 p-2");
+        var resultCard = $("<div>").addClass("card result-card ");
+        var row = $("<div>").addClass("row g-0 ");
 
         var cardImageColumn = $("<div>").addClass("col-md-4");
-        var cardImage = $("<img>").attr("src", photoUrl).addClass(" img-fluid");
+        var cardImage = $("<img>").attr("src", photoUrl).addClass("img-fluid card-image");
+        cardImageColumn.append(cardImage);
 
-        var cardContentColumn = $("<div>").addClass("col-md-8");
-        var cardContent = $("<div>").addClass("card-body");
-        var mediaContent = $("<div>").addClass("media-content");
+        var cardContentColumn = $("<div>").addClass("col-md-8 m-auto");
+       
+        var mediaContent = $("<div>").addClass("media-content ");
 
-        var cardTitle = $("<h5>").addClass("card-title");
+        var cardTitle = $("<h5>").addClass("card-title d-flex justify-content-between");
         cardTitle.text(name);
         
         let bookIcon = createBookmark(name, results[i].place_id, "restaurant");
@@ -156,12 +157,10 @@ function displayResults(results, searchOptions) {
         let isOpenEl = $("<p>").html(isOpen);
         let ratingEl = $("<p>").html(`<strong>${rating}</strong> /5 (${ratingsCount} total reviews)`);
         let priceLevelEl = $("<p>").html(priceLevel);
-        let details = $('<p><a href="./restaurant-details.html?q=' + results[i].place_id +'">Details</a><p>');
+        let details = $('<a href="./restaurant-details.html?q=' + results[i].place_id +'">Details</a>');
 
-        mediaContent.append(cardTitle, isOpenEl, priceLevelEl, ratingEl, details);
-        cardContent.append(mediaContent);
-        cardContentColumn.append(cardContent);
-        cardImageColumn.append(cardImage);
+  
+        cardContentColumn.append(cardTitle, isOpenEl, priceLevelEl, ratingEl, details).append(mediaContent);;
         row.append(cardImageColumn, cardContentColumn);
         resultCard.append(row);
         resultColumn.append(resultCard);
@@ -185,7 +184,7 @@ function displayResults(results, searchOptions) {
         }
 
         let query = `${keyword}&radius=${radius}&location=${cityNameNoSpace}`
-        restaurantContainer.append('<div> <p class = "is-size-2 mb-3 has-text-centered"><a href="./see-more-restaurants.html?q=' + query +'">See more restaurants<p></div>');
+        restaurantContainer.append('<div class = "text-centered"> <a href="./see-more-restaurants.html?q=' + query +'">See more restaurants</div>');
     }
 }
 

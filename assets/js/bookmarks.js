@@ -53,17 +53,17 @@ function loadBookmarks() {
     if (bookmarks === null || bookmarks.length === 0) {
         bookmarks = [];
         bkList.text("");
-        bkList.append($('<div class="dropdown-item">No Bookmarks</div>'));
+        bkList.append($('<a class="dropdown-item">No Bookmarks</a>'));
     } else {
         if (bkList.length <= bookmarks.length) {
             bkList.text("");
             
             for(let x = 0; x < bookmarks.length; x++) {
                 if(bookmarks[x].type === "recipe"){
-                    bkList.append($('<div class="dropdown-item"><a href= "./recipe-details.html?q=' + bookmarks[x].id + '">'+ bookmarks[x].name + '</div>'));
+                    bkList.append($('<a class="dropdown-item" href= "./recipe-details.html?q=' + bookmarks[x].id + '">'+ bookmarks[x].name + '</a>'));
                 }
                 else{
-                    bkList.append($('<div class="dropdown-item"><a href= "./restaurant-details.html?q=' + bookmarks[x].id + '">'+ bookmarks[x].name + '</div>'))
+                    bkList.append($('<a class="dropdown-item" href= "./restaurant-details.html?q=' + bookmarks[x].id + '">'+ bookmarks[x].name + '</a>'))
                 }
             }
         }
