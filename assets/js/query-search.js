@@ -1,4 +1,4 @@
-const GOOGLE = "AIzaSyCFTg8yxhfKfqvVhtZpfmTyXco9qlHLm2Q";
+const GOOGLE = "AIzaSyAFfzG0PgyLODX9EHrA8r7CI2AVTrSu8-Q";
 const SEARCH_RESULTS = "restaurantResults";
 const RESULTS_PHOTO_URL = "photo_url";
 const RESULTS_IS_OPEN = "is_open";
