@@ -17,7 +17,9 @@ form {
  
 }
 
-
+a{
+    text-decoration: none;
+}
 
 a:hover {
     color: rgb(139, 194, 228);
