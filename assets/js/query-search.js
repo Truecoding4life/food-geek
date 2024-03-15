@@ -85,6 +85,7 @@ function fetchGooglePlaces(keyword) {
         localStorage.setItem(SEARCH_RESULTS, stringifyResults);
         localStorage.setItem(SEARCH_OPTIONS, stringifyOptions)
     });
+    
 }
 
 
