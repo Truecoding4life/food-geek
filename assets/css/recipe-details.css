@@ -1,0 +1,28 @@
+#recipe-detail{
+    background-color: rgb(23, 22, 22);
+    color: aliceblue;
+}
+
+.bolder{
+    font-weight: 700;
+}
+
+#info{
+    font-family: Poppins, sans-serif;
+}
+
+
+#title{
+    display: flex;
+    font-size: 24px;
+    flex-direction: column;
+}
+
+.save-reminder{
+    font-size: 17px;
+}
+
+#name{
+    font-size: 30px;
+    font-family: Poppins, sans-serif;
+}

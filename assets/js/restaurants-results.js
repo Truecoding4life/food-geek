@@ -53,14 +53,14 @@ function displayResults(results) {
       
 
         let cardTitle = $("<h3>");
-        cardTitle.addClass("card-title title my-0 is-3 is-centered");
+        cardTitle.addClass("card-title title");
         cardTitle.text(name)
       
       
         let icon = createBookmark(name, results[i].place_id, "restaurant");
         icon.addClass("more-icon");
         cardTitle.append(icon);
-            
+
 
 
         var cardImage = $("<img>").attr("src", photo).addClass("card-img-top");

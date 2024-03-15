@@ -1,4 +1,8 @@
 var queryResult;
+var SAVE_FAVORITE = "Save to favorite";
+var saved = $("<i>");
+
+
 function getSearchQuery() {
     queryResult = document.location.search.split("=")[1];
     if (queryResult) {
@@ -35,13 +39,16 @@ function getSearchResults(recipeId){
 };
 
 function dataForRecipe(label, imageUrl, cuisine, health, calories, recipeLIink){
-    var title = $('#title');
-    title.children().text(label);
-
+    var header = $('#title');
+    var title = $('#info');
+    title.children('h').text(label);
     let icon = createBookmark(label, queryResult, "recipe");
-    icon.addClass("details-icon");
-    title.append(icon);
-
+    icon.addClass("details-icon icon-need-fix");
+    title.prepend(icon);
+    if (filterBookmarks(queryResult) >= 0) {
+        SAVE_FAVORITE = "Favorite";
+    }
+    icon.html(`<span class='save reminder'> ${SAVE_FAVORITE} </span>`);
     var image = $('#image');
     image.attr('src',imageUrl);
 

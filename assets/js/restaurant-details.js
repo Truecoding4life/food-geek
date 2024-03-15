@@ -1,4 +1,8 @@
 var queryResult;
+var SAVE_FAVORITE = "Save to favorite";
+var saved = $("<i>");
+
+
 
 $(document).ready(function() {
     queryResult= document.location.search.split("=")[1];
@@ -29,10 +33,18 @@ function getPlaceDetails(restId) {
             image.attr("src",place.photos[0].getUrl({maxWidth: 500, maxHeight: 500}));
 
             let name = $("#title");
-            name.children().text(place.name);
+            let title = $('<h2>')
+            title.addClass('title')
+            title.text(place.name);
 
             let icon = createBookmark(place.name, queryResult, "restaurant");
-            icon.addClass("details-icon");
+            icon.addClass("details-icon icon-need-fix");
+            if (filterBookmarks(queryResult) >= 0) {
+                SAVE_FAVORITE = 'favorite';
+            }
+            icon.html("<span class='save-reminder'> " + SAVE_FAVORITE +" </span>")
+            name.append(title)
+            
             name.append(icon);
 
             let info = $("#info");
@@ -40,9 +52,9 @@ function getPlaceDetails(restId) {
             formatted_address[5] = formatted_address[5].split(",")[0];
             // console.log("Address: ", formatted_address);
             
-            information = "Address: <br>"+ formatted_address[0] + " " + formatted_address[1] + " " + formatted_address[2] + "<br>     " + formatted_address[3] + " " + formatted_address[4] + " " + formatted_address[5]
-            + "<br><br>Phone: <br>" + place.formatted_phone_number
-            + "<br><br>Hours: <br>";
+            information = " <span class='bolder'> Address: </span> <br>"+ formatted_address[0] + " " + formatted_address[1] + " " + formatted_address[2] + "<br>     " + formatted_address[3] + " " + formatted_address[4] + " " + formatted_address[5]
+            + "<br><br> <span class='bolder'>Phone: </span> <br>" + place.formatted_phone_number
+            + "<br><br> <span class='bolder'>Hours: </span> <br>";
             let weekdays = place.opening_hours.weekday_text
 
             for (let x = 0; x < weekdays.length; x++) {
@@ -52,31 +64,43 @@ function getPlaceDetails(restId) {
 
             let website = $("#website");
             // console.log(place.url);
-            website.html('<a href="'+ place.url +'"> Find it on Google Maps </a>');
+            let anchor = $("<a>")
+            anchor.attr({href:place.url})
+            anchor.text('Find it on Google Maps')
+            website.append(anchor);
 
             var reviews = $("#reviews");
             for (let x = 0; x < place.reviews.length; x++) {
                 let reviewBox = $("<div>");
-                reviewBox.addClass("is-flex review-row");
+                reviewBox.addClass(" row custom-card p-3 ");
 
                 let authorBox = $("<div>");
-                authorBox.addClass("card my-2 p-2 review-author");
-                authorBox.addClass("");
-                authorBox.text(place.reviews[x].author_name);
+                authorBox.addClass("d-inline-flex" );
+                let authorName = $('<h5>')
+                authorName.addClass('card-text-detail-name')
+                authorName.text(place.reviews[x].author_name);
                 
-                let authorImg = $("<img>");
-                authorImg.attr("src", place.reviews[x].profile_photo_url);
+                
+                let authorImg = $("<div>");
+                authorImg.addClass('col-4 col-sm-2 col-lg-3 col-xl-1 p-3 card-detail-image text-center')
+                let image = $("<img>")
+                image .attr("src", place.reviews[x].profile_photo_url);
+                image .addClass('img-fluid ')
+                authorImg.append(image)
+                authorImg.append(authorName)
                 authorBox.append(authorImg);
 
                 let authorRating = $('<p>');
-                authorRating.text(place.reviews[x].rating + "/5");
-                authorBox.append(authorRating);
-
+                authorRating.text("rate:  "+place.reviews[x].rating + "/5");
+                
                 let authorText = $('<div>');
-                authorText.addClass("p-2 my-2 review-text")
-                authorText.html("<p>" + place.reviews[x].text + "</p>");
+                authorText.addClass(" my-0 p-4 review-text col-8 col-sm-10 col-lg-10 col-xl-11 card-text-detail-text")
+                let text = place.reviews[x].text;
+                authorText.append(`<p> ${text} </p>`)
+                authorText.append(authorRating);
 
-                reviewBox.append(authorBox, authorText);
+                authorBox.append(authorText)
+                reviewBox.append(authorBox);
                 reviewBox.addClass("my-2");
                 reviews.append(reviewBox);
             }

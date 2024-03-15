@@ -7,6 +7,7 @@ function createBookmark(name, id, type) {
     if (filterBookmarks(id) >= 0) {
         icon.data("favorite", true);
         icon.addClass("fa-bookmark")
+        icon.attr('saved', true)
     } else {
         icon.data("favorite", false);
         icon.addClass("fa-bookmark-o")

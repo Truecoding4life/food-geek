@@ -1,43 +1,46 @@
 
-.restaurant-detail-page{
-    background-color: rgb(24, 22, 22);
-    color: white;
+main{
+    background-color: rgb(20, 19, 19);
+    color: rgb(255, 255, 255);
+   
 }
 
-.review-author {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: rgba(34, 30, 30, 0.906);
-    color:rgb(46, 50, 50);
-    border-radius: 20px 0px 0px 20px;
-    text-align: center;
-    min-width: 30%;
-    height: auto;
+.custom-card {
+    border-radius: 30px;
+    background-color: rgb(32, 30, 26);
 }
 
 .review-text {
-    background-color: rgb(231, 235, 232);
-    color: rgba(32, 30, 30, 0.906);;
-    border-radius: 0px 20px 20px 0px;
+    border-radius: 0px 20px 20px 20px;
+    font-family: "Nunito", sans-serif;
+    background-color: #8b6d13b1;
+    color: rgb(234, 237, 239);
 
     /* min-width: 90%; */
 }
 
-.title{
-    width: 40%;
+#title{
+    display: flex;
+    flex-direction: column;
 }
 
 #reviews {
-    display: flex;
-    flex-direction: column;
-    font-family: "Raleway", sans-serif;
+    color: rgb(246, 199, 71);
+    font-family: Fredoka, sans-serif;
 }
 
-@media screen and (min-width: 769px) {
-    .review-author {
-        min-width: 12%;
+
+
+.bolder{
+    font-weight: 700;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .card-text-detail-name{
+        font-size: 12px;
+    }
+    .card-text-detail-text{
+        font-size: 12px;
     }
 }
-
-
