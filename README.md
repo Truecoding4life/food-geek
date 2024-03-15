@@ -22,19 +22,40 @@ The user can bookmark their favorite recipes/restaurants and look at them in the
 |![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)|[link](https://developers.google.com/maps/documentation/javascript/places#place_details)||
 |**Edamam API**|[link](https://developer.edamam.com/edamam-docs-recipe-api)|
 
-## Images
+## Demo
 
-Website Home Page
+**Website Home Page**
+
+User will be welcome with a beautiful UI.
 
 <img src="./assets/images/app-home-page.png" style="width: 500px; height: auto" alt="website home page">
 
-<br>Website Demo: <br> ![website-demo](./assets/images/website-demo.gif) <br> <br>
-See more demo: <br> ![see-more-demo](./assets/images/see-more-demo.gif) <br><br>
-Size change demo: <br>![size-change-demo](./assets/images/size-change-mobile.gif)
+<br>
 
-Website Banner
+**Searching for food:** 
 
-<img src="https://img.freepik.com/free-vector/restaurant-mural-wallpaper_52683-48028.jpg?w=900&t=st=1697220890~exp=1697221490~hmac=56f2be0348c88491858d15463dd1f1c75a549d4e02a53116fe016a7fe1df67f2" style="width: 500px; height: auto" alt="fresh food banner">
+For the app to work you must enter the food you want to search and a location where you want to look for. Google auto-fill is implemented to help make the process faster
+
+![website-demo](./assets/images/searching.gif)
+
+
+**Look for restaurant reviews:**
+
+User can find restaurant info and reviews
+
+![see-more-demo](./assets/images/retaurant-review.gif) 
+
+
+**Support different devices:**
+
+We support arrange of different devices this help make our app more accessible.
+
+![iPad-Screen](./assets/images/iPad.png)
+
+![iPhone-Screen](./assets/images/iPhone.png)
+
+
+
 
 
 ## Testing
