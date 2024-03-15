@@ -45,11 +45,11 @@ function showRecipeResults(searchQuery) {
         .then(function (data) {
                 // ALL WE HAVE TO DO IS INSERT INTO THE CARD GENERATOR FUNCTION VALUES RETURNED FROM API
                 localStorage.setItem(SEARCH_RESULT, JSON.stringify(data))
-                RecipecardGenerator(data);
+                RecipecardGenerator(data, searchQuery);
+               
             
-            if (data.hits.length > 0) {
-                $(".recipe-display").append('<div> <p class = "is-size-2 mb-3 text-centered"><a href = "./see-more-recipes.html?q=' + searchQuery +'">See more recipes <p></div>');
-            }
+                
+            
 
             // Scroll user to results
         });
@@ -57,7 +57,7 @@ function showRecipeResults(searchQuery) {
 
 // THIS FUNCTION WILL GENERATE ELEMENT ON THE PAGE WE JUST NEED TO NEST THE INFO WE NEED INSIDE
 // THIS FUNCTION WILL TAKE IN TITLE, CARD TEXT CONTENT AND IMAGE URL
-function RecipecardGenerator(data) {
+function RecipecardGenerator(data, searchQuery) {
 
      for (i = 0; i < 4; i++) {
                 recipeId = data.hits[i].recipe.uri.split("_")[1];
@@ -103,9 +103,13 @@ function RecipecardGenerator(data) {
     row.append(cardImageColumn ,cardContentColumn);
     resultCard.append(row);
     resultColumn.append(resultCard);
-
+    
+    
     $(".recipe-display").append(resultColumn);
-}}
+}
+$(".recipe-display").append('<div> <p class="text-centered"><a href="./see-more-recipes.html?q=' + searchQuery +'">See more recipes</a></p></div>');
+
+}
 
 function openModal(){
     document.getElementById("emptyinput").setAttribute("class", "modal is-active");

@@ -213,5 +213,10 @@ a:hover {
         margin-bottom: 220px;
         background-color: rgb(28, 23, 23);
     }
+
+    .search-section{
+        margin-bottom: 30px;
+        border-radius: 20px;
+    }
     
 }

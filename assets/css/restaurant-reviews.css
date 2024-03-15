@@ -19,6 +19,11 @@ main{
     /* min-width: 90%; */
 }
 
+ #image{
+        width: 100%;
+        padding: 30px;
+    }
+
 #title{
     display: flex;
     flex-direction: column;
@@ -29,7 +34,11 @@ main{
     font-family: Fredoka, sans-serif;
 }
 
+.review-card-author-name{
+    font-size: 13px;
 
+    padding: 6px;
+}
 
 .bolder{
     font-weight: 700;
@@ -37,10 +46,15 @@ main{
 
 
 @media screen and (max-width: 1000px) {
-    .card-text-detail-name{
+    .review-card-author-name{
         font-size: 12px;
     }
     .card-text-detail-text{
         font-size: 12px;
     }
+}
+
+@media screen and (max-width: 768px) {
+   
+    
 }

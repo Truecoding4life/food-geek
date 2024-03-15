@@ -8,25 +8,25 @@ We wanted to use 2 different server-side APIs, Google Maps/Places API and Edamam
 
 The user can bookmark their favorite recipes/restaurants and look at them in the bookmarks menu. Clicking on the bookmark link from the menu will move to the "details" page for that respective recipe/restaurant. The bookmarks are stored in the browser's local storage.
 
-**Deployment link:** [https://fenriragni.github.io/food-finder/](https://fenriragni.github.io/food-finder/)
+**Deployment link:** [https://truecoding4life.github.io/food-geek/](https://truecoding4life.github.io/food-geek/)
 
 ## Technologies Used
 
 |Technology Name|Resource|
 |-----------|------------|
-|JavaScript|[link](https://www.w3schools.com/js/js_intro.asp)|
-|CSS|[link](https://www.w3schools.com/css/css_intro.asp)|
-|Git|[link](https://www.w3schools.com/git/git_intro.asp?remote=github)|
-|JQuery|[link](https://jquery.com/)|
-|Bulma|[link](https://bulma.io/documentation/)|
-|Google API|[link](https://developers.google.com/maps/documentation/javascript/places#place_details)|
-|Edamam API|[link](https://developer.edamam.com/edamam-docs-recipe-api)|
+|![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)|[link](https://www.w3schools.com/js/js_intro.asp)|
+|![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)|[link](https://www.w3schools.com/css/css_intro.asp)| |
+|![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)|[link](https://www.w3schools.com/git/git_intro.asp?remote=github)||
+|![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)|[link](https://jquery.com/)|
+|![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)|[link](https://getbootstrap.com/docs/5.3/getting-started/introduction/)||
+|![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)|[link](https://developers.google.com/maps/documentation/javascript/places#place_details)||
+|**Edamam API**|[link](https://developer.edamam.com/edamam-docs-recipe-api)|
 
 ## Images
 
 Website Home Page
 
-<img src="./assets/images/Screenshot%202023-10-13%20at%2011.05.34%20AM.png" style="width: 500px; height: auto" alt="website home page">
+<img src="./assets/images/app-home-page.png" style="width: 500px; height: auto" alt="website home page">
 
 <br>Website Demo: <br> ![website-demo](./assets/images/website-demo.gif) <br> <br>
 See more demo: <br> ![see-more-demo](./assets/images/see-more-demo.gif) <br><br>

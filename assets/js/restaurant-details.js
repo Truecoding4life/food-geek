@@ -105,12 +105,12 @@ function getPlaceDetails(restId) {
         let authorBox = $("<div>");
         authorBox.addClass("d-inline-flex");
         let authorName = $("<h5>");
-        authorName.addClass("card-text-detail-name");
+        authorName.addClass("review-card-author-name");
         authorName.text(place.reviews[x].author_name);
 
         let authorImg = $("<div>");
         authorImg.addClass(
-          "col-4 col-sm-2 col-lg-3 col-xl-1 p-3 card-detail-image text-center"
+          "col-4 col-sm-3 col-lg-3 col-xl-1 p-3 review-card-author-image text-center"
         );
         let image = $("<img>");
         image.attr("src", place.reviews[x].profile_photo_url);
@@ -124,7 +124,7 @@ function getPlaceDetails(restId) {
 
         let authorText = $("<div>");
         authorText.addClass(
-          " my-0 p-4 review-text col-8 col-sm-10 col-lg-10 col-xl-11 card-text-detail-text"
+          " my-0 p-4 review-text col-8 col-sm-9 col-lg-10 col-xl-11 card-text-detail-text"
         );
         let text = place.reviews[x].text;
         authorText.append(`<p> ${text} </p>`);
