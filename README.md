@@ -1,4 +1,16 @@
-# Food Finder Website 
+# Food Geek 
+
+![GitHub License Badge](https://img.shields.io/badge/License-MIT-yellow)
+
+## Table of Contents
+- [Description](#description)
+- [Demo](#demo)
+- [testing](#testing)
+- [Features highlight](#features-highlight)
+
+#### Web Application
+[link to deploy Application](https://truecoding4life.github.io/food-geek/)
+
 
 ## Description
 
@@ -8,25 +20,13 @@ We wanted to use 2 different server-side APIs, Google Maps/Places API and Edamam
 
 The user can bookmark their favorite recipes/restaurants and look at them in the bookmarks menu. Clicking on the bookmark link from the menu will move to the "details" page for that respective recipe/restaurant. The bookmarks are stored in the browser's local storage.
 
-**Deployment link:** [https://truecoding4life.github.io/food-geek/](https://truecoding4life.github.io/food-geek/)
 
-## Technologies Used
-
-|Technology Name|Resource|
-|-----------|------------|
-|![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)|[link](https://www.w3schools.com/js/js_intro.asp)|
-|![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)|[link](https://www.w3schools.com/css/css_intro.asp)| |
-|![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)|[link](https://www.w3schools.com/git/git_intro.asp?remote=github)||
-|![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)|[link](https://jquery.com/)|
-|![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)|[link](https://getbootstrap.com/docs/5.3/getting-started/introduction/)||
-|![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)|[link](https://developers.google.com/maps/documentation/javascript/places#place_details)||
-|**Edamam API**|[link](https://developer.edamam.com/edamam-docs-recipe-api)|
 
 ## Demo
 
-**Website Home Page**
+**Website Home Page:** 
 
-User will be welcome with a beautiful UI.
+at the homepage user will be able to views all the results and the search bar.
 
 <img src="./assets/images/app-home-page.png" style="width: 500px; height: auto" alt="website home page">
 
@@ -75,7 +75,7 @@ Some of the things we wanted to achieve through this project:
 * Getting a better understanding of how the git workflow functions with multiple users and resolving issues that arise
 * Developing skills in communicating with others on a collaborative project, rather than using the driver/navigator role exclusively
 
-## Code Snippet
+## Features highlight
 
 A function that returns a negative value if the given item id does not exist in bookmarks. This was crucial in making bookmarks function properly when adding or removing: <br>
 ```js
@@ -131,8 +131,19 @@ function getSearchQuery() {
 
 [Fresh food image](https://www.freepik.com/free-vector/restaurant-mural-wallpaper_10373272.htm#query=food%20graphic&position=4&from_view=keyword&track=ais)
 
+## Technologies Used
 
-### Resources
+|Technology Name|Resource|
+|-----------|------------|
+|![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)|[link](https://www.w3schools.com/js/js_intro.asp)|
+|![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)|[link](https://www.w3schools.com/css/css_intro.asp)| |
+|![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)|[link](https://www.w3schools.com/git/git_intro.asp?remote=github)||
+|![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)|[link](https://jquery.com/)|
+|![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)|[link](https://getbootstrap.com/docs/5.3/getting-started/introduction/)||
+|![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)|[link](https://developers.google.com/maps/documentation/javascript/places#place_details)||
+|**Edamam API**|[link](https://developer.edamam.com/edamam-docs-recipe-api)|
+
+#### More Details
 
 [Browser Geolocation](https://www.w3schools.com/html/html5_geolocation.asp)
 
@@ -152,9 +163,29 @@ function getSearchQuery() {
 [Place Search requests](https://developers.google.com/maps/documentation/javascript/places#place_search_requests)
 
 
-## Authors
+## Contributors
+**Alonso Ampuero**
+- [Github](https://github.com/FenriRagni)
+- [LinkedIn](https://www.linkedin.com/in/alonsoampuero/)
 
-Alonso Ampuero [Github](https://github.com/FenriRagni)
-Minami Mukai [Github](https://github.com/mitsukaichi)
-Nathan Geronimo [Github](https://github.com/nathangero)
-Thai Nghiem [Github](https://github.com/Truecoding4life)
+**Minami Mukai** 
+- [Github](https://github.com/mitsukaichi)
+- [LinkedIn](https://www.linkedin.com/in/minami-itsukaichi/)
+
+**Nathan Geronimo** 
+- [Github](https://github.com/nathangero)
+- [LinkedIn](https://www.linkedin.com/in/nathan-geronimo/)
+
+## Author
+
+**Jay Nghiem**
+
+- [Portfolio](https://jstudio.tech)
+- [LinkedIn](https://www.linkedin.com/in/thai-nghiem-319292267/)
+- [GitHub](https://github.com/Truecoding4life)
+
+## License
+
+This project is licensed with MIT license
+
+Link to License - [Website to MIT License](<(https://opensource.org/license/mit)>)
